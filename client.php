@@ -25,7 +25,7 @@ final class companiesHouseApi {
 	 *
 	 * @return mixed
 	 */
-	public function send($endpoint, array $payload) {
+	public function send($endpoint, array $payload = []) {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $this->getRequestUrl($endpoint, $payload));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -33,7 +33,7 @@ final class companiesHouseApi {
 		$result = curl_exec($ch);
 		curl_close($ch);
 
-		if ($json = json_decode($result)) {
+		if ($json = json_decode($result, true)) {
 			$result = $json;
 		}
 
