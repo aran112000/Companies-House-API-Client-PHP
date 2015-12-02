@@ -18,3 +18,16 @@ $response = $api->send('/search/companies', ['q' => $company_name]); // Process 
 // Handle the API response below here...
 echo '<p><pre>' . print_r($response, true) . '</pre></p>';
 ```
+
+**Based on the above example, here's how a valid response would appear:**
+```
+Array
+(
+    [countryCode] => 'GB'
+    [vatNumber] => 'VAT Number'
+    [requestDate] => 2015-12-02+01:00
+    [valid] => 1
+    [name] => 'Company name...'
+    [address] => 'Address...'
+)
+```
